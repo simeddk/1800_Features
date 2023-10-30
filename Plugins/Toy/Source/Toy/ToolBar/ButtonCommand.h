@@ -12,6 +12,10 @@ public:
 public:
 	virtual void RegisterCommands() override;
 
+private:
+	void SpawnVertexButton_Pressed();
+
 public:
-	TSharedPtr<FUICommandInfo> CommandInfo;
+	TSharedPtr<FUICommandInfo> SpawnVertexButton;
+	TSharedPtr<FUICommandList> SpawnVertexCommand;
 };
