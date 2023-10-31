@@ -1,24 +1,28 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 
-class TOY_API IconStyle
+class TOY_API FIconStyle
 {
 public:
-	static TSharedPtr<IconStyle> Get();
+	static TSharedPtr<FIconStyle> Get();
 	static void Shutdown();
 
 public:
-	IconStyle();
-	~IconStyle();
+	FIconStyle();
+	~FIconStyle();
 
 private:
-	static TSharedPtr<IconStyle> Instance;
+	void RegisterIcon(const FString& InPostFix, const FString& InPath, const FVector2D& InSize, FSlateIcon& OutSlateIcon);
+
+private:
+	static TSharedPtr<FIconStyle> Instance;
 
 private:
 	const FName StyleSetName = "ToyStyle";
 	TSharedPtr<class FSlateStyleSet> StyleSet;
 
+public:
+	FSlateIcon SpawnVertexButtonIcon;
+	FSlateIcon OpenViewerButtonIcon;
 };
