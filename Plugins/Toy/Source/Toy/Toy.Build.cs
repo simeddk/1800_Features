@@ -20,7 +20,8 @@ public class Toy : ModuleRules
 			"EditorStyle",
 			"LevelEditor",
 			"Projects",
-			"GameplayDebugger"
+			"GameplayDebugger",
+			"PropertyEditor"
 		});
 		
 	}
