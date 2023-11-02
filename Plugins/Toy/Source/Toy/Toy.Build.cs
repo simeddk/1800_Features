@@ -21,7 +21,10 @@ public class Toy : ModuleRules
 			"LevelEditor",
 			"Projects",
 			"GameplayDebugger",
-			"PropertyEditor"
+			"PropertyEditor",
+			"MainFrame",
+			"DesktopPlatform",
+			"U08_Features"
 		});
 		
 	}
