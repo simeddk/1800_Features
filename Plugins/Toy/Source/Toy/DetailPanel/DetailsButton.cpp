@@ -6,6 +6,7 @@
 #include "DesktopPlatformModule.h"
 #include "IDesktopPlatform.h"
 #include "Serialization/BufferArchive.h"
+#include "Misc/FileHelper.h"
 #include "RHI/CButtonActor.h"
 
 TSharedRef<IDetailCustomization> FDetailsButton::MakeInstance()
