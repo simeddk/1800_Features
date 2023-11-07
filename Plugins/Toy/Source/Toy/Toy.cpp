@@ -58,8 +58,7 @@ void FToyModule::ShutdownModule()
 		IGameplayDebugger::Get().UnregisterCategory("AwesomeData");
 
 	FIconStyle::Shutdown();
-	MeshViewer::Shutdown();
-
+	FMeshViewer::Shutdown();
 }
 
 void FToyModule::AddToolBar_SpawnVertex(FToolBarBuilder& InToolBarBuilder)
