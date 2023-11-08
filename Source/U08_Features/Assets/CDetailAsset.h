@@ -11,6 +11,13 @@ class U08_FEATURES_API UCDetailAsset : public UObject
 
 private:
 	UPROPERTY(EditAnywhere)
-		FVector Location;
+		FVector Location = FVector(100, 100, 100);
+
+	UPROPERTY(EditAnywhere, Category = "Shader")
+		bool bUsePostProcess = true;
+
+	UPROPERTY(EditAnywhere, Category = "Shader", meta = (ClampMax = 1.00, ClampMin = 0.00))
+		float Alpha = 0.25f;
 	
+
 };
