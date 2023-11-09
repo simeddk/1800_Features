@@ -6,7 +6,7 @@ public class Toy : ModuleRules
 	{
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		
-		PrivateIncludePaths.Add(ModuleDirectory);
+		PublicIncludePaths.Add(ModuleDirectory);
 
 		PublicDependencyModuleNames.Add("Core");
 
@@ -27,6 +27,7 @@ public class Toy : ModuleRules
 			"UnrealEd",
 			"AdvancedPreviewScene",
 			"InputCore",
+			"AssetTools",
 			"U08_Features"
 		});
 		

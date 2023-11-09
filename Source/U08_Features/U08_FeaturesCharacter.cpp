@@ -13,6 +13,7 @@
 #include "Materials/Material.h"
 #include "Materials/MaterialInstanceDynamic.h"
 #include "Engine/World.h"
+#include "AssetTools/CAsset.h"
 
 AU08_FeaturesCharacter::AU08_FeaturesCharacter()
 {
@@ -57,6 +58,14 @@ AU08_FeaturesCharacter::AU08_FeaturesCharacter()
 	// Activate ticking in order to update the cursor every frame.
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
+
+	ConstructorHelpers::FObjectFinder<UCAsset> asset(TEXT("CAsset'/Game/Blueprints/Asset001.Asset001'"));
+	if (asset.Succeeded())
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Name : %s"), *asset.Object->GetName().ToString());
+		UE_LOG(LogTemp, Warning, TEXT("Mesh : %s"), *asset.Object->GetShape()->GetName());
+		UE_LOG(LogTemp, Warning, TEXT("DropRate : %f"), asset.Object->GetDropRate());
+	}
 }
 
 

@@ -1,12 +1,14 @@
 #include "Toy.h"
 #include "LevelEditor.h"
 #include "GameplayDebugger.h"
+#include "AssetToolsModule.h"
 #include "ToolBar/ButtonCommand.h"
 #include "ToolBar/IconStyle.h"
 #include "DebuggerCategory/DebuggerCategory.h"
 #include "DetailPanel/DetailsButton.h"
 #include "Viewer/MeshViewer.h"
 #include "RHI/CButtonActor.h"
+#include "AssetTools/CAssetAction.h"
 
 #define LOCTEXT_NAMESPACE "FToyModule"
 
@@ -47,6 +49,15 @@ void FToyModule::StartupModule()
 			ACButtonActor::StaticClass()->GetFName(),
 			FOnGetDetailCustomizationInstance::CreateStatic(&FDetailsButton::MakeInstance)
 		);
+	}
+
+	//AssetTypeAction
+	{
+		IAssetTools& assetTools = FModuleManager::LoadModuleChecked<FAssetToolsModule>("AssetTools").Get();
+		//EAssetTypeCategories::Type category = EAssetTypeCategories::Misc;
+		EAssetTypeCategories::Type category = assetTools.RegisterAdvancedAssetCategory(FName("MyKey"), FText::FromString("Awesome Category"));
+		AssetTypeActions = MakeShareable(new CAssetAction(category));
+		assetTools.RegisterAssetTypeActions(AssetTypeActions.ToSharedRef());
 	}
 }
 
